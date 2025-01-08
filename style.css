@@ -1,0 +1,81 @@
+html, body{
+    height:100%;
+    padding: 0;
+    margin: 0;
+    font-family: monospace;
+}
+
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    width:50%;
+    color:white;
+}
+
+#header{
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100px; */
+    width:100%;
+    border: 5px #2f5162 solid;
+    border-radius: 5px;
+}
+
+#sillywiredrag {
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    top: 200px;
+}
+
+nav {
+    border: 5px #51a8b1 solid;
+    border-radius: 5px;
+    /* height:50px; */
+    width: 100%;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color:white;
+    font-size: 1.5rem;
+    padding:0 0.75em;
+    text-align: center;
+}
+
+#maincontent {
+    /* height: 100%; */
+    display: flex;
+    justify-content: center;
+}
+
+#links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+@media screen and (max-width: 800px) {
+    #sillywiredrag{
+        display: none;
+    }
+    main {
+        width:100%;
+    }
+}
