@@ -114,6 +114,6 @@ main#gallery {
 
 @media screen and (max-width: 600px){
     img {
-        max-width: 200px;
+        width: 150px;
     }
 }
