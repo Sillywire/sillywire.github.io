@@ -116,4 +116,8 @@ main#gallery {
     img {
         width: 150px;
     }
+
+    html, body {
+            overflow-y:visible;
+    }
 }
