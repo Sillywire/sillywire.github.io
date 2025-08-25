@@ -1,4 +1,4 @@
-const img = document.getElementById('sillywiredrag');
+const img = document.getElementById('imagedrag');
 
     let offsetX = 0;
     let offsetY = 0;

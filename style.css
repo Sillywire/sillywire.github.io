@@ -1,117 +1,112 @@
-html, body{
-    height:100%;
-    padding: 0;
+html body {
+    font-family: Arial, sans-serif;
     margin: 0;
-    font-family: monospace;
+    padding: 0;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow-y: hidden;
 }
 
 body {
-    background-color: black;
-    display: flex;
-    justify-content: center;
+    background: linear-gradient(rgb(173, 173, 215), rgb(154, 154, 242)) ;
+    color : #333333;
 }
 
-main {
-    width:50%;
-    color:white;
+.box {
+    background-color: rgb(240, 240, 240);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 75%;
+    padding: 20px;
+    height: 90%;
+    border: 2px solid #333333;
+    overflow-y:scroll;
+    scrollbar-width: none;
 }
 
-#header{
-    color: white;
+header {
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* height: 100px; */
-    width:100%;
-    border: 5px #2f5162 solid;
-    border-radius: 5px;
-}
-
-#sillywiredrag {
-    position: absolute;
-    cursor: pointer;
-    display: flex;
-    top: 200px;
 }
 
 nav {
-    border: 5px #51a8b1 solid;
-    border-radius: 5px;
-    /* height:50px; */
-    width: 100%;
-}
-
-nav ul{
-    list-style: none;
+    border-top: #333333 5px solid;
+    border-bottom: #333333 5px solid;
+    height: 60px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-nav ul li a{
-    text-decoration: none;
-    color:white;
-    font-size: 1.5rem;
-    padding:0 0.75em;
-    text-align: center;
-}
-
-#maincontent {
-    /* height: 100%; */
-    display: flex;
-    justify-content: center;
-}
-
-#links {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
-
-@media screen and (max-width: 800px) {
-    #sillywiredrag{
-        display: none;
-    }
-    main {
-        width:100%;
-    }
+nav a{
+    text-decoration: none;
+    color: black;
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
 }
 
-#sillywirebounce {
+/* Styling for <details>-meny */
+details.socials {
+    display: inline-block;
+    position: relative; /* gjør at meny-innhold kan posisjoneres absolutt */
+}
+
+details.socials summary {
+    list-style: none; /* fjern trekanten i noen nettlesere */
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+}
+
+/* Menyinnhold posisjonert rett under summary */
+.socials-content {
+    display: none; /* skjules når details ikke er open */
     position: absolute;
-    top: 200px;
-    width: 200px;
-    animation: realistic-bounce 3s ease-in-out forwards;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    min-width: 200px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    z-index: 20; /* sørg for at menyen ligger over annet innhold */
 }
-@keyframes realistic-bounce {
-    0% {
-        transform: translateY(0); /* Start on the ground */
-    }
-    20% {
-        transform: translateY(-150px); /* First (highest) bounce */
-    }
-    40% {
-        transform: translateY(0); /* Back to ground */
-    }
-    55% {
-        transform: translateY(-100px); /* Smaller bounce */
-    }
-    70% {
-        transform: translateY(0); /* Back to ground */
-    }
-    80% {
-        transform: translateY(-50px); /* Even smaller bounce */
-    }
-    90% {
-        transform: translateY(0); /* Nearly settled */
-    }
-    95% {
-        transform: translateY(-10px); /* Tiny bounce */
-    }
-    100% {
-        transform: translateY(0); /* Final rest position */
-    }
+
+/* Når details er åpent: vis innholdet */
+details.socials[open] .socials-content {
+    display: block;
+}
+
+/* Litt mellomrom og styling for lenkene i menyen */
+.socials-content a{ 
+    display: block;
+    padding: 0.25rem 0;
+    color: #0366d6;
+    text-decoration: none;
+    margin-bottom: 5px;
+    padding-left: 5px;
+}
+.socials-content a:hover {
+    text-decoration: underline;
+}
+#discord:hover{
+    text-decoration: none;
+    cursor:unset;
+}
+
+img {
+    max-width: 300px;
+}
+
+main#gallery {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#imagedrag {
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    cursor: move;
 }
