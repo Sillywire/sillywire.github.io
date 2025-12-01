@@ -5,5 +5,124 @@ html, body{
 }
 
 body {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 125px 100px repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+#headerLeft { grid-area: 1 / 1 / 2 / 3; }
+#headerMid { grid-area: 1 / 3 / 2 / 5; }
+#headerRight { grid-area: 1 / 5 / 2 / 7; }
+nav { grid-area: 2 / 1 / 3 / 7; }
+main { grid-area: 3 / 2 / 7 / 6; }
+
+
+body {
+    background-image:url(/images/night\ sky.jpg);
+    color: white;
     text-align: center;
+}
+
+#headerLeft {
+    background:rgba(0, 0, 0, 0.85);
+    border: 2px white solid;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    font-family: "Roboto", sans-serif;
+}
+
+#headerLeft h1 {
+    font-size: 2.5rem;
+}
+
+#headerMid {
+    background:rgba(0, 0, 0, 0.85);
+    border: 2px white solid;
+    border-left: 0;
+    border-right: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    font-family: "Roboto", sans-serif;
+}
+
+#headerMid h1 {
+    font-size: 3rem;
+}
+
+#headerMid h3 {
+    color:gray;
+}
+
+#headerRight {
+    background:rgba(0, 0, 0, 0.85);
+    border: 2px white solid;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    /* justify-content: center; */
+    font-family: "Roboto", sans-serif;
+}
+
+#headerRight h1 {
+    font-size: 2.5rem;
+}
+
+
+#discord {
+    cursor: pointer;
+}
+
+nav {
+    background:rgba(0, 0, 0, 0.85);
+    border: 2px white solid;
+    border-top: 0px;
+}
+
+main {
+    background:rgba(0, 0, 0, 0.85);
+    border: 2px white solid;
+    border-top: 0px;
+}
+
+
+@media screen and (max-width: 768px) {
+    body {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 125px 100px repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+
+    #headerMid { grid-area: 1 / 1 / 2 / 6; }
+    #headerRight { grid-area: 2 / 1 / 3 / 6; }
+    nav { grid-area: 3 / 1 / 4 / 6; }
+    main { grid-area: 4 / 1 / 6 / 6; }
+    
+    #headerLeft {
+        display: none;
+    }
+
+    #headerMid{
+        gap:10px
+    }
+
+    #headerRight {
+        justify-content: center;
+    }
 }
