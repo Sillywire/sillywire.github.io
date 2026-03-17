@@ -1,9 +1,174 @@
-html, body{
-    padding: 0;
-    margin: 0;
-    height: 100%;
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 100%; height: 100%;
+    background: #000;
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    overflow: hidden;
+  }
+
+  /* ── OUTER WINDOW ── */
+  .window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: min(860px, 90vw);
+    border: 1.5px solid rgba(255,255,255,0.7);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── TITLE BAR ── */
+  .titlebar {
+    border-bottom: 1.5px solid rgba(255,255,255,0.7);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .titlebar h1 {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    letter-spacing: -0.5px;
+    text-shadow: 0 0 40px rgba(255,255,255,0.25);
+  }
+
+  /* ── SPLIT BODY ── */
+  .body {
+    display: flex;
+    height: 360px;
+  }
+
+  /* ── LEFT NAV ── */
+  nav {
+    width: 200px;
+    flex-shrink: 0;
+    border-right: 1.5px solid rgba(255,255,255,0.7);
+    display: flex;
+    flex-direction: column;
+  }
+  nav a {
+    display: block;
+    padding: 12px 16px 12px 22px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 600;
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    position: relative;
+  }
+  nav a:last-child { border-bottom: none; }
+  nav a:hover, nav a.active {
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+  }
+  nav a.active::before {
+    content: '▶';
+    font-size: 0.5em;
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+  }
+
+  /* ── RIGHT CONTENT ── */
+  .content {
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.15) transparent;
+  }
+
+  .pane { display: none; padding: 26px 28px; animation: fadeIn 0.2s ease; }
+  .pane.active { display: block; }
+
+  .pane h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .pane p {
+    font-size: 0.8rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 10px;
+  }
+  .pane ul {
+    padding-left: 18px;
+    font-size: 0.8rem;
+    line-height: 2.1;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* home */
+  .empty-hint {
+    margin-top: 80px;
+    text-align: center;
+    color: rgba(255,255,255,0.12);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+  }
+
+   /* interests */
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 10px;
 }
 
-body {
-    text-align: center;
+.interest-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.interests-grid img {
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 8px;
+}
+
+  /* ── FOOTER ── */
+  .footbar {
+    border-top: 1.5px solid rgba(255,255,255,0.7);
+    padding: 7px 20px;
+    font-size: 0.62rem;
+    color: rgba(255,255,255,0.44);
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #Mobile {
+    display: none;
+  }
+
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+  @media screen and (max-width: 760px) {
+    .window {
+        display: none;
+    }
+
+    #Mobile {
+        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }
